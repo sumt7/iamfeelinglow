@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I am feeling low</title>
+<meta name="description" content="One question: how bad is it right now? Four honest answers. One action matched to the level. No data, no tracking, no payment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main id="content">
+
+  <section id="home" class="view">
+    <p>Hi, I'm Sumee. My father gave me this name. He died on Feb 9, 2024. I'm an only child.</p>
+    <p>In the months after, I was low enough, more than once, that I thought about not being here.</p>
+    <p>Reading every book and thread about "feeling low," I noticed almost all of it is written for one severity &mdash; mild &mdash; and handed to everyone. A walk and a journal prompt don't work when you're drowning. They insult you.</p>
+    <p>So I built the thing I wish someone had given me.</p>
+    <p>One question: how bad is it right now?<br>Four honest answers.<br>One action for each, matched to the level.</p>
+    <p>No data. No tracking. No payment. Ever.</p>
+    <p class="start-wrap"><button type="button" id="start" class="btn">Start</button></p>
+  </section>
+
+  <section id="selector" class="view" hidden>
+    <p class="question">How bad is it right now?</p>
+    <div class="cards">
+      <button type="button" class="card" data-tier="flat">Flat</button>
+      <button type="button" class="card" data-tier="heavy">Heavy</button>
+      <button type="button" class="card" data-tier="drowning">Drowning</button>
+      <button type="button" class="card" data-tier="dangerous">Dangerous</button>
+    </div>
+  </section>
+
+  <section id="result" class="view" hidden>
+    <article class="result-card" id="result-flat" hidden>
+      <p class="subjective"><em>"I'm functioning but something's off. The color is drained out of things."</em></p>
+      <p class="action"><strong>Action: Go outside for 15 minutes. No phone.</strong></p>
+      <p>Walk somewhere with trees or sky if you can. This tier responds to sensory input. You're not broken &mdash; your system is under-stimulated and over-thinking. The outside world is the quickest reset.</p>
+    </article>
+
+    <article class="result-card" id="result-heavy" hidden>
+      <p class="subjective"><em>"Getting through today feels like wading. I can do it but every task costs more than it should."</em></p>
+      <p class="action"><strong>Action: Do one small thing for a stranger.</strong></p>
+      <p>Buy fruit from the vendor you usually walk past. Leave a bag of food where it'll be found. Tip someone more than you should. Heavy lifts when you briefly stop being the main character in your own head &mdash; and giving something small, physically, does that faster than thinking your way out.</p>
+    </article>
+
+    <article class="result-card" id="result-drowning" hidden>
+      <p class="subjective"><em>"I can't see a way through. I've been here for days and I don't trust that it'll pass."</em></p>
+      <p class="action"><strong>Action: Move your body hard enough that it hurts a little. Then call one person.</strong></p>
+      <p>Run until you're out of breath. Pushups until your arms shake. Climb stairs. This tier doesn't respond to insight &mdash; your thoughts are the problem, not the solution. Physical exhaustion is the only thing that reliably quiets a mind at this level for an hour. Use that hour to call one person. Just one.</p>
+    </article>
+
+    <article class="result-card" id="result-dangerous" hidden>
+      <p class="subjective"><em>"I'm thinking about not being here anymore."</em></p>
+      <p class="action"><strong>Don't do this alone. Please.</strong></p>
+      <ul class="hotlines">
+        <li>iCall (India): <a href="tel:9152987821">9152987821</a></li>
+        <li>Vandrevala Foundation (India, 24/7): <a href="tel:18602662345">1860-2662-345</a></li>
+        <li>Outside India: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a></li>
+      </ul>
+      <p>This tier is not something to journal through or walk off. It's a call. Make it. I've been here. The person on the other end isn't going to judge you, and the call itself is what breaks the spiral.</p>
+    </article>
+
+    <p class="go-back"><a href="#" id="back">Go back</a></p>
+  </section>
+
+</main>
+
+<footer id="crisis-footer">
+  <p><em>If you're thinking about hurting yourself, please call someone now. India: iCall <a href="tel:9152987821">9152987821</a>, Vandrevala <a href="tel:18602662345">1860-2662-345</a>. Outside India: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a></em></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
