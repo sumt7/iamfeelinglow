@@ -16,4 +16,4 @@ Plain HTML, CSS, vanilla JS. No framework. No build step. Three files: `index.ht
 
 ## Built by
 
-Sumee, who lost his father on Feb 9, 2024, and built this after going through the lowest points himself.
+Sumeet, who lost his father on Feb 9, 2024, and built this after going through the lowest points himself.

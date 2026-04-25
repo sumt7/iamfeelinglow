@@ -4,7 +4,7 @@
 
 A single-page web tool for people who are feeling low. One question: how bad is it right now? Four honest answers. One action matched to the severity level.
 
-Built by Sumee, who lost his father on Feb 9, 2024, and went through the lowest points himself before building this.
+Built by Sumeet, who lost his father on Feb 9, 2024, and went through the lowest points himself before building this.
 
 The wedge: most mental wellness content is written for mild severity and handed to everyone. This product matches the intervention to the severity. Flat gets environment change. Heavy gets other-directed action. Drowning gets physical exhaustion. Dangerous gets a human on the phone.
 
@@ -25,7 +25,9 @@ If a line could appear in a generic meditation app, rewrite it. If it makes a re
 
 ## Homepage copy (exact, do not paraphrase)
 
-> Hi, I'm Sumee. My father gave me this name. He died on Feb 9, 2024. I'm an only child.
+> Hi, I'm Sumeet.
+>
+> My father gave me this name. He died on Feb 9, 2024. I'm an only child.
 >
 > In the months after, I was low enough, more than once, that I thought about not being here.
 >
@@ -47,7 +49,7 @@ Footer, italic, small:
 
 ## Severity taxonomy (the four tiers)
 
-Each tier needs three pieces: the label, the italic subjective description (first-person, the way it actually feels), and the one action with a 2-3 sentence rationale in Sumee's voice.
+Each tier needs three pieces: the label, the italic subjective description (first-person, the way it actually feels), and the one action with a 2-3 sentence rationale in Sumeet's voice.
 
 ### Flat
 *"I'm functioning but something's off. The color is drained out of things."*
