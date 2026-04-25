@@ -2,3 +2,10 @@
 .DS_Store
 Thumbs.db
 specs/
+node_modules/
+package.json
+package-lock.json
+skills-lock.json
+.agents/
+.vercel/
+handbook.backup-*/
