@@ -35,6 +35,8 @@ If a line could appear in a generic meditation app, rewrite it. If it makes a re
 >
 > So I built the thing I wish someone had given me.
 >
+> *For the days you can't say it out loud.*
+>
 > One question: how bad is it right now?
 > Four honest answers.
 > One action for each, matched to the level.
