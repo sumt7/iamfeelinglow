@@ -148,6 +148,12 @@ a:hover { text-decoration-thickness: 2px; }
   font-size: 14px;
 }
 
+.noscript-note {
+  margin-top: 1em;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
 #crisis-footer {
   max-width: 580px;
   width: 100%;
