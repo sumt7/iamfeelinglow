@@ -41,11 +41,16 @@ _Fill in as they come in. Anonymous, cookieless page-view counts via Vercel Anal
 - Enabled Vercel Web Analytics in the dashboard. Page views will start recording from now.
 - Shipped the launch post.
 - Configured custom domain `iamfeelinglow.today`. Added `vercel.json` redirect so the old `iamfeelinglow.vercel.app` 308s to it.
+- Added `<link rel="canonical">` pointing to the new domain.
+- Renamed "Sumee" → "Sumeet" across homepage, README, CLAUDE.md. Split homepage opening so "Hi, I'm Sumeet." sits on its own line.
+- Added `+91` country code to all `tel:` links so the dialer pre-fills the international format.
+- Added Open Graph + Twitter meta tags so social-share previews render properly. (No og:image yet — possible follow-up.)
+- Added "Back to home" link on the result view, beside the existing "Go back". Tested on phone, working.
+- Mobile audit complete on a real phone; only issue found was the missing +91, now fixed.
 
 _Future entries: one-line wins, one-line blockers, one decision per day. Don't pad it._
 
 ## open questions / decisions to make
 
-- When and how to push the launch post out (Twitter / LinkedIn). Track is Virality — this needs to happen before Sat 8pm to count.
-- Whether to add a "back to home" link on the result view (currently goes back to picker only).
-- Mobile spacing audit on a real phone (haven't tested yet).
+- Whether to add an `og:image` so social cards render as a full-width banner instead of a small text card. Would meaningfully bump click-through on every reshare.
+- Whether to validate the launch post URL on Twitter card validator and LinkedIn Post Inspector to refresh their cached previews now that OG tags are live.
