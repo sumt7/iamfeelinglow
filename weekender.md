@@ -11,7 +11,7 @@ This is Sumeet's working file for the AI Weekender sprint. Update the live state
 ## live state
 
 - **Stage:** L2
-- **Live URL:** https://iamfeelinglow.vercel.app/
+- **Live URL:** https://iamfeelinglow.today/ (custom domain; old `iamfeelinglow.vercel.app` 308-redirects here)
 - **GitHub:** https://github.com/sumt7/iamfeelinglow
 - **Vercel project:** `sumt7s-projects/iamfeelinglow`
 - **Local repo linked:** yes (as of 2026-04-25)
@@ -34,6 +34,13 @@ _Fill in as they come in. Anonymous, cookieless page-view counts via Vercel Anal
 - Decision: add anonymous, cookieless Vercel Analytics. Reason: need to know if anyone is reaching the page and which tier they pick, without breaking the privacy promise.
 - Reconciled homepage copy — old line *"No data. No tracking. No payment. Ever."* replaced with *"No signup. No personal data stored. Ever."* CLAUDE.md non-negotiable #1 updated to match.
 - Today's one move: ship anonymous analytics + the new copy, then verify on the live URL.
+
+### 2026-04-26 (Sun)
+
+- Pushed the 2 pending commits to `origin/main` (`ce5df78..3ed252d`). Live URL now matches local.
+- Enabled Vercel Web Analytics in the dashboard. Page views will start recording from now.
+- Shipped the launch post.
+- Configured custom domain `iamfeelinglow.today`. Added `vercel.json` redirect so the old `iamfeelinglow.vercel.app` 308s to it.
 
 _Future entries: one-line wins, one-line blockers, one decision per day. Don't pad it._
 

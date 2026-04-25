@@ -2,13 +2,13 @@
 
 A single-page web tool for people who are feeling low. One question: how bad is it right now? Four honest answers. One action matched to the severity.
 
-Live: https://iamfeelinglow.vercel.app/
+Live: https://iamfeelinglow.today/
 
 ## What it is
 
 Most mental wellness content is written for mild severity and handed to everyone. This product matches the intervention to the severity. Flat gets environment change. Heavy gets other-directed action. Drowning gets physical exhaustion. Dangerous gets a human on the phone.
 
-No signup. No tracking. No analytics. No payment. Ever.
+No signup. No personal data stored. Ever. (Anonymous, cookieless page-view counts via Vercel Analytics — no IPs, no cross-site tracking, no per-user identifiers.)
 
 ## Stack
 
