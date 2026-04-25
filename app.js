@@ -4,6 +4,7 @@
   var selector = document.getElementById('selector');
   var result = document.getElementById('result');
   var back = document.getElementById('back');
+  var homeLink = document.getElementById('home-link');
   var cards = document.querySelectorAll('.card');
   var resultCards = document.querySelectorAll('.result-card');
 
@@ -36,5 +37,14 @@
     hideAllResults();
     show(selector);
     selector.scrollIntoView({ block: 'start' });
+  });
+
+  homeLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    hide(result);
+    hideAllResults();
+    hide(selector);
+    show(home);
+    home.scrollIntoView({ block: 'start' });
   });
 })();
