@@ -52,5 +52,7 @@ _Future entries: one-line wins, one-line blockers, one decision per day. Don't p
 
 ## open questions / decisions to make
 
-- Whether to add an `og:image` so social cards render as a full-width banner instead of a small text card. Would meaningfully bump click-through on every reshare.
-- Whether to validate the launch post URL on Twitter card validator and LinkedIn Post Inspector to refresh their cached previews now that OG tags are live.
+- **Refresh cached social previews** (do this later — image is already live):
+  - Twitter card validator: https://cards-dev.twitter.com/validator
+  - LinkedIn Post Inspector: https://www.linkedin.com/post-inspector/
+  - Paste `https://iamfeelinglow.today/` into each and click Inspect/Preview. Refreshes their cache so future reshares show the new banner card.
