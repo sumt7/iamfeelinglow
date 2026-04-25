@@ -45,7 +45,7 @@ If a line could appear in a generic meditation app, rewrite it. If it makes a re
 
 Footer, italic, small:
 
-> If you're thinking about hurting yourself, please call someone now. India: iCall 9152987821, Vandrevala 1860-2662-345. Outside India: findahelpline.com
+> If you're thinking about hurting yourself, please call someone now. India: iCall 9152987821, Vandrevala +91 9999 666 555. Outside India: findahelpline.com
 
 ## Severity taxonomy (the four tiers)
 
@@ -77,9 +77,15 @@ Run until you're out of breath. Pushups until your arms shake. Climb stairs. Thi
 
 **Don't do this alone. Please.**
 
-- iCall (India): 9152987821
-- Vandrevala Foundation (India, 24/7): 1860-2662-345
-- Outside India: findahelpline.com
+- iCall (India, free counselling): 9152987821
+- Vandrevala Foundation (India, 24/7; WhatsApp from any country): +91 9999 666 555 — same number works on WhatsApp. The WhatsApp link pre-fills the message *"Hi there, I am coming from https://iamfeelinglow.today and my situation is quite dangerous now."* so the user doesn't have to compose anything at the worst possible moment.
+- Tele-MANAS (Government of India, 20+ languages, 24/7): 14416 within India, or 1-800-891-4416 toll-free
+- 7 Cups (global anonymous chat, 24/7): 7cups.com
+- Befrienders Worldwide (32 countries, 349 centres): befrienders.org
+- 988 Suicide & Crisis Lifeline (US and Canada): call or text 988
+- Find A Helpline (directory of 1,600+ helplines worldwide): findahelpline.com
+
+All hotlines verified against the source data in `helplines.json` (last verified 2026-04-25). Every phone number renders as a tappable `tel:` link with `+91` country code prefix where relevant. WhatsApp uses `wa.me/<phone>?text=...`. Re-verify before each major release.
 
 This tier is not something to journal through or walk off. It's a call. Make it. I've been here. The person on the other end isn't going to judge you, and the call itself is what breaks the spiral.
 
@@ -119,7 +125,7 @@ Keep it boring. Keep it fast.
 - **Plain HTML, CSS, vanilla JS.** No framework. No build step. No node_modules.
 - Single page: `index.html`. Severity selection and result rendering handled with vanilla JS + DOM updates. No routing.
 - No fonts except Google Fonts (Lora). Load with `<link>` in `<head>`, with `font-display: swap`.
-- No images. This site has no images. The writing is the product.
+- No images in the rendered product. The writing is the product. (Exception: a single static `og-image.png` exists at the project root for social-share previews — it's metadata for Twitter / LinkedIn / WhatsApp link cards, never displayed inside the page itself. Same dusk-blue palette, calm typography, no marketing copy.)
 - No external JS libraries. No jQuery. The only third-party script is Vercel's anonymous, cookieless analytics tag (`/_vercel/insights/script.js`) — added inline in `index.html`, no npm dependency.
 
 ## File structure
@@ -138,7 +144,7 @@ iamfeelinglow/
 1. User lands on home. Reads the copy. Clicks "Start."
 2. "Start" reveals (does not navigate away from) the severity question: "How bad is it right now?" with four options shown as cards in a vertical stack: Flat / Heavy / Drowning / Dangerous.
 3. User clicks their tier. The four cards are replaced by the single result card for that tier — italic subjective description, bold action, rationale paragraph.
-4. Below the result card: a small "Go back" link (not button, link) in case they picked wrong.
+4. Below the result card: two small links separated by a middle dot — "Go back" (returns to the picker) and "Back to home" (returns to the homepage opening). Both are links, not buttons, in case they picked wrong or want a full reset.
 5. Crisis footer is always visible, on every view.
 
 All transitions are instant. No animations longer than 150ms. No fade effects on the result card — just show it.
