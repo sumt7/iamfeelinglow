@@ -10,7 +10,7 @@ The wedge: most mental wellness content is written for mild severity and handed 
 
 ## Non-negotiables (never compromise on these)
 
-1. **No signup. No tracking. No analytics. No payment. Ever.** Not now, not later. This is the promise on the homepage and it must be true.
+1. **No signup. No personal data stored. No payment. Ever.** Not now, not later. This is the promise on the homepage and it must be true. Anonymous, cookieless page-view counts via Vercel Analytics are allowed (no IPs stored, no cross-site tracking, no per-user identifiers). Anything that crosses into individual identification is out.
 2. **The "Dangerous" tier routes to real crisis hotlines.** It must be visible in the footer of every page, not just the result card. Numbers must be verified before launch.
 3. **No traffic-light colors for severity.** Do not use red for Dangerous, yellow for Heavy, etc. Someone at Dangerous does not need an alarm — they need a calm hand. All severity tiers use the same palette. Severity is communicated through copy, not color.
 4. **No emoji in the product copy.** No upbeat marketing language. Never use "journey," "wellness," "super," "happy," or exclamation marks in severity-related copy.
@@ -37,7 +37,7 @@ If a line could appear in a generic meditation app, rewrite it. If it makes a re
 > Four honest answers.
 > One action for each, matched to the level.
 >
-> No data. No tracking. No payment. Ever.
+> No signup. No personal data stored. Ever.
 >
 > [ Start ]
 
@@ -118,7 +118,7 @@ Keep it boring. Keep it fast.
 - Single page: `index.html`. Severity selection and result rendering handled with vanilla JS + DOM updates. No routing.
 - No fonts except Google Fonts (Lora). Load with `<link>` in `<head>`, with `font-display: swap`.
 - No images. This site has no images. The writing is the product.
-- No external JS libraries. No jQuery. No analytics libraries. Nothing.
+- No external JS libraries. No jQuery. The only third-party script is Vercel's anonymous, cookieless analytics tag (`/_vercel/insights/script.js`) — added inline in `index.html`, no npm dependency.
 
 ## File structure
 
