@@ -50,9 +50,11 @@ _Fill in as they come in. Anonymous, cookieless page-view counts via Vercel Anal
 
 _Future entries: one-line wins, one-line blockers, one decision per day. Don't pad it._
 
-## open questions / decisions to make
+## later checklist (Sumeet does these on his own time — no nudging)
 
-- **Refresh cached social previews** (do this later — image is already live):
+- [ ] **Refresh cached social previews.** Image and metadata are already live. These validators force the platforms to re-fetch the new card.
   - Twitter card validator: https://cards-dev.twitter.com/validator
   - LinkedIn Post Inspector: https://www.linkedin.com/post-inspector/
-  - Paste `https://iamfeelinglow.today/` into each and click Inspect/Preview. Refreshes their cache so future reshares show the new banner card.
+  - Paste `https://iamfeelinglow.today/` into each and click Inspect/Preview.
+- [ ] **Read Vercel Analytics dashboard.** First 24h+ of post-launch traffic — visit count, tier-pick rate, per-tier breakdown.
+- [ ] **Validate Vandrevala WhatsApp pre-fill on a real phone** if not already done — open Dangerous tier, tap WhatsApp, confirm the message reads "Hi there, I am coming from https://iamfeelinglow.today and my situation is quite dangerous now."
