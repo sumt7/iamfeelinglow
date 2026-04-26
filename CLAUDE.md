@@ -70,7 +70,7 @@ Buy fruit from the vendor you usually walk past. Leave a bag of food where it'll
 ### Drowning
 *"I can't see a way through. I've been here for days and I don't trust that it'll pass."*
 
-**Action: Move your body hard enough that it hurts a little. Then call one person.**
+**Action: Move your body hard enough to break the loop. Then call one person.**
 
 Run until you're out of breath. Pushups until your arms shake. Climb stairs. This tier doesn't respond to insight — your thoughts are the problem, not the solution. Physical exhaustion is the only thing that reliably quiets a mind at this level for an hour. Use that hour to call one person. Just one.
 
