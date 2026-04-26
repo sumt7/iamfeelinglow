@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I am feeling low &mdash; v1.1 preview.</title>
+<meta name="description" content="Preview of v1.1 — same letter and picker as v1, with short descriptions under each tier card. — Sumeet">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EEF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141821" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main id="content">
+
+  <section id="home" class="view">
+    <h1 class="visually-hidden">I am feeling low.</h1>
+    <p>Hi, I'm Sumeet.</p>
+    <p>My father gave me this name. He died on Feb 9, 2024. I'm an only child.</p>
+    <p>In the months after, I was low enough, more than once, that I thought about not being here.</p>
+    <p>Reading every book and thread about "feeling low," I noticed almost all of it is written for one severity &mdash; mild &mdash; and handed to everyone. A walk and a journal prompt don't work when you're drowning. They insult you.</p>
+    <p>So I built the thing I wish someone had given me.</p>
+    <p><em>For the days you can't say it out loud.</em></p>
+    <p>One question: how bad is it right now?<br>Four honest answers.<br>One action for each, matched to the level.</p>
+    <p>No signup. No personal data stored. Ever.</p>
+    <p class="start-wrap"><button type="button" id="start" class="btn">Start</button></p>
+    <noscript><p class="noscript-note">Picker needs JavaScript. Hotlines still work.</p></noscript>
+  </section>
+
+  <section id="selector" class="view" aria-labelledby="selector-question" hidden>
+    <h1 id="selector-question" class="question" tabindex="-1">How bad is it right now?</h1>
+    <div class="cards">
+      <button type="button" class="card card-with-desc" data-tier="flat">
+        <span class="card-title">Flat:</span>
+        <span class="card-desc">I feel numb, blank, or disconnected.</span>
+      </button>
+      <button type="button" class="card card-with-desc" data-tier="heavy">
+        <span class="card-title">Heavy:</span>
+        <span class="card-desc">I can function, but everything feels hard.</span>
+      </button>
+      <button type="button" class="card card-with-desc" data-tier="drowning">
+        <span class="card-title">Drowning:</span>
+        <span class="card-desc">I can't see a way through right now.</span>
+      </button>
+      <button type="button" class="card card-with-desc" data-tier="dangerous">
+        <span class="card-title">Dangerous:</span>
+        <span class="card-desc">I may hurt myself or I don't feel safe.</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="result" class="view" aria-live="polite" aria-atomic="true" hidden>
+    <article class="result-card" id="result-flat" tabindex="-1" hidden>
+      <p class="subjective"><em>"I'm functioning but something's off. The color is drained out of things."</em></p>
+      <p class="action"><strong>Action: Go outside for 15 minutes. No phone.</strong></p>
+      <p>Walk somewhere with trees or sky if you can. This tier responds to sensory input. You're not broken &mdash; your system is under-stimulated and over-thinking. The outside world is the quickest reset.</p>
+    </article>
+
+    <article class="result-card" id="result-heavy" tabindex="-1" hidden>
+      <p class="subjective"><em>"Getting through today feels like wading. I can do it but every task costs more than it should."</em></p>
+      <p class="action"><strong>Action: Do one small thing for a stranger.</strong></p>
+      <p>Buy fruit from the vendor you usually walk past. Leave a bag of food where it'll be found. Tip someone more than you should. Heavy lifts when you briefly stop being the main character in your own head &mdash; and giving something small, physically, does that faster than thinking your way out.</p>
+    </article>
+
+    <article class="result-card" id="result-drowning" tabindex="-1" hidden>
+      <p class="subjective"><em>"I can't see a way through. I've been here for days and I don't trust that it'll pass."</em></p>
+      <p class="action"><strong>Action: Move your body hard enough to break the loop. Then call one person.</strong></p>
+      <p>Run until you're out of breath. Pushups until your arms shake. Climb stairs. This tier doesn't respond to insight &mdash; your thoughts are the problem, not the solution. Physical exhaustion is the only thing that reliably quiets a mind at this level for an hour. Use that hour to call one person. Just one.</p>
+    </article>
+
+    <article class="result-card" id="result-dangerous" tabindex="-1" hidden>
+      <p class="subjective"><em>"I'm thinking about not being here anymore."</em></p>
+      <p class="action"><strong>Don't do this alone. Please.</strong></p>
+      <ul class="hotlines">
+        <li><a href="https://wa.me/919999666555?text=Hi%20there%2C%20I%20am%20coming%20from%20https%3A%2F%2Fiamfeelinglow.today%20and%20my%20situation%20is%20quite%20dangerous%20now." rel="noopener">WhatsApp Vandrevala</a> &mdash; if you can't speak, the message is already written. Tap and send.</li>
+        <li>Vandrevala Foundation (India, 24/7, calls from any country): <a href="tel:+919999666555">+91 9999 666 555</a></li>
+        <li>iCall (India, free counselling): <a href="tel:+919152987821">9152987821</a></li>
+        <li>Tele-MANAS (Government of India, 20+ languages, 24/7): <a href="tel:14416">14416</a> within India, or <a href="tel:18008914416">1-800-891-4416</a> toll-free</li>
+        <li>988 Suicide &amp; Crisis Lifeline (US and Canada): call or text <a href="tel:988">988</a></li>
+        <li>7 Cups (global anonymous chat, 24/7): <a href="https://www.7cups.com" rel="noopener">7cups.com</a></li>
+        <li>Befrienders Worldwide (32 countries, 349 centres): <a href="https://befrienders.org" rel="noopener">befrienders.org</a></li>
+        <li>Find A Helpline (directory of 1,600+ helplines worldwide): <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a></li>
+      </ul>
+      <p class="subjective"><em>Last verified 2026-04-25.</em></p>
+      <p>This tier is not something to journal through or walk off. It's a call. Make it. I've been here. The person on the other end isn't going to judge you, and the call itself is what breaks the spiral.</p>
+    </article>
+
+    <p class="go-back"><a href="#" id="back">Go back</a> &middot; <a href="#" id="home-link">Back to home</a></p>
+  </section>
+
+</main>
+
+<footer id="crisis-footer">
+  <p><em>If you're thinking about hurting yourself, please call someone now. India: iCall <a href="tel:+919152987821">9152987821</a>, Vandrevala <a href="tel:+919999666555">+91 9999 666 555</a>. Outside India: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a></em></p>
+</footer>
+
+<script src="/v1.1/app.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
