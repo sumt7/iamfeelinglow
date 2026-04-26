@@ -106,8 +106,8 @@
 
   try { history.replaceState({ view: 'home' }, '', ''); } catch (e) { /* ignore */ }
 
-  // Counter line above Start. Skips repeat visitors and silent-fails on API errors.
-  if (counterLine && !hasClickedBefore) {
+  // Counter line above Start. Shown to everyone each visit; only the increment is once-per-device.
+  if (counterLine) {
     try {
       fetch(COUNTER_API).then(function (r) {
         if (!r.ok) return;
