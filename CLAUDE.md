@@ -134,12 +134,68 @@ Keep it boring. Keep it fast.
 
 ```
 iamfeelinglow/
-├── index.html       # Entire app: home + severity selector + result views
-├── styles.css       # Palette, typography, layout
-├── app.js           # Severity selection, view switching
+├── index.html       # v1: letter homepage + 4-tier self-select + 4 result cards
+├── styles.css       # Shared palette, typography, layout (used by both v1 and v2)
+├── app.js           # v1: severity selection, view switching
+├── og-image.png     # Single static OG card for social-share previews
+├── favicon.svg      # Browser-tab icon (italic serif "i" on dusk-blue)
+├── sitemap.xml      # SEO: lists / and /v2
+├── robots.txt       # SEO: allow all, point to sitemap
+├── vercel.json      # Vercel: 308 redirect from .vercel.app to .today
+├── v2/
+│   ├── index.html   # v2: guided 4-question check-in + same 4 result cards
+│   └── app.js       # v2: question state machine, scoring, view switching
 ├── CLAUDE.md        # This file
 └── README.md        # Project readme for GitHub
 ```
+
+## Two versions: v1 and v2
+
+There are two surfaces, both live, both maintained:
+
+- **v1 at `/`** — the letter version. Sumeet's personal opening, then a single tap on one of four self-described severity tiers. The wedge.
+- **v2 at `/v2`** — the guided version. Four short questions, scored, routed to the same four tiers. For visitors who land via search ("feeling low quiz") or who can't self-categorize.
+
+The two pages do *not* link to each other. v1 is a standalone wedge; v2 is a separate landing for a different audience. Search engines find v2 via `sitemap.xml`. Sharers pass URLs directly.
+
+### What is shared between v1 and v2 (change one → change both)
+
+These pieces of content are duplicated between `index.html` and `v2/index.html`. If you change one, change the other in the same commit:
+
+- **The four result cards.** `<article class="result-card" id="result-flat | result-heavy | result-drowning | result-dangerous">` blocks. Identical copy, identical structure.
+- **The Dangerous tier hotline list.** Seven entries (iCall, Vandrevala, Tele-MANAS, 7 Cups, Befrienders, 988, Find A Helpline) plus the WhatsApp pre-fill URL.
+- **The crisis footer.** `<footer id="crisis-footer">` block at the bottom of every view.
+- **Result-card "Start over / Read the letter version" links** (v2) and "Go back / Back to home" links (v1) — different patterns, same UX intent.
+- **Brand and SEO meta basics** — `<meta charset>`, `<meta viewport>`, the favicon link, the JSON-LD WebApplication block (only in v1 right now).
+
+### What is separate (only one version owns it)
+
+- **Homepage letter copy** — only in v1, the "Hi, I'm Sumeet…" paragraphs.
+- **Quiz intro and question copy** — only in v2.
+- **v1's severity selector picker** — `<section id="selector">` with the four tier cards.
+- **v2's question state machine** — the four `<section id="q1|q2|q3|q4">` blocks and `app.js` scoring logic.
+- **Scoring bands and Q4 override logic** — only in v2.
+- **Page-specific titles, descriptions, og:title, etc.** — each surface has its own SEO copy.
+
+### Workflow for simultaneous improvements
+
+For any change that affects shared content (a result-card tweak, a hotline update, a footer fix):
+
+1. Branch from `main`: `git checkout -b <topic>` (e.g., `tweak-drowning-action`, `add-aasra-hotline`).
+2. Make the change in **both** `index.html` and `v2/index.html` in the same commit.
+3. Push the branch: `git push -u origin <topic>`.
+4. Vercel auto-deploys a preview URL within ~30s. Test it on phone + desktop.
+5. Merge to main only when both versions look right: `git checkout main && git merge --ff-only <topic> && git push origin main`.
+
+For changes that only affect one version (homepage letter rewrite, quiz question reordering), edit only that version's file. Same branch + preview workflow still applies for anything non-trivial.
+
+### What does NOT need duplication
+
+These already live in one shared file:
+- `styles.css` — both versions reference the same stylesheet.
+- `og-image.png`, `favicon.svg`, `sitemap.xml`, `robots.txt` — single root assets.
+
+If a future change requires shared JavaScript logic, prefer a single file at root over duplicating into `v2/` — but only if the cost of duplication clearly outweighs the cost of the new file.
 
 ## UX flow
 
