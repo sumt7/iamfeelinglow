@@ -56,6 +56,42 @@ _Fill in as they come in. Anonymous, cookieless page-view counts via Vercel Anal
 - Set up a Stop-hook in `~/.claude/settings.json` that plays the Windows Asterisk sound when Claude finishes a turn.
 - **Built v2 — guided 4-question check-in at `/v2`.** Same stack, same styles, same crisis floor. Scoring maps Q1+Q2+Q3 (range 2–8) to the existing 4 tiers; Q4=Yes overrides to Dangerous. Decision: don't link from `/` → `/v2`. The two surfaces serve two audiences (letter readers vs. search arrivals via "feeling low quiz" type queries).
 
+### 2026-04-26 (Sun) — afternoon
+
+- **v1 polish pass shipped (PR #1):** phone back button (history.pushState + popstate), focus + screen-reader polish (h1 question, aria-live result, tabindex), `theme-color` meta, WhatsApp-first reorder of Dangerous list with "if you can't speak" line, Esc-to-go-back.
+- **v2 fixed (PR #2):** Begin button was dead because `<script src="app.js">` resolved to v1's `/app.js` when visiting `/v2` with no trailing slash. Changed to absolute `/v2/app.js`. v2 had been broken since launch on 2026-04-26.
+- **v1 → v2 discovery link (PR #8):** small muted "Explore v2 (Beta)" line above crisis footer on v1. v2 still does not link back. Reverses the old "two pages don't link" rule.
+- **CLAUDE.md updated (PR #9, #11):** documents the new discovery link; rewrites the "shared content" section to "v1 and v2 ship independently — never auto-mirror, mirror only on explicit direction".
+- **Five new surfaces shipped (PRs #12–#16):** `/404` (calm 404 with crisis footer), `/hotlines` (standalone shareable hotlines page), `/flat /heavy /drowning /dangerous` (JS-free shareable tier deep links). Visually-hidden h1 added to home view. Global `prefers-reduced-motion` media query in styles.css. `color-scheme: light dark` meta on every page.
+- **"Last verified 2026-04-25" line on Dangerous card (PR #17):** trust signal that hotlines are recent. Now consistent on `/`, `/hotlines`, `/dangerous`.
+- **5 stale parallel-agent PRs closed (#3, #4, #5, #6, #7, #10):** they were forked before today's work. Re-implemented fresh on current main as PRs #12–#17 to avoid clobbering recent merges.
+
+**Decisions logged:**
+- v1 and v2 ship independently. Never auto-mirror shared content (Dangerous list, result cards, footer). Each version has its own audience and pace.
+- Self-audit UI/copy before reporting work done. Re-read every new user-facing string for punctuation, separator, terminology before saying "done".
+
+### v1.1 — work in progress (NOT live, NOT pushed to production)
+
+- Branch: `feat-v1.1-tier-descriptions` (pushed to GitHub, no PR yet).
+- Lives at `/v1.1/` if served (currently noindex; not in sitemap).
+- Each tier card now has a stronger title with colon + smaller muted description below:
+  - Flat: I feel numb, blank, or disconnected.
+  - Heavy: I can function, but everything feels hard.
+  - Drowning: I can't see a way through right now.
+  - Dangerous: I may hurt myself or I don't feel safe.
+- Includes a copy edit on the Drowning result card action: "hard enough to break the loop" instead of "hard enough that it hurts a little".
+- **Open: styling pass.** `styles.css` does NOT yet have the `.card-with-desc / .card-title / .card-desc` rules — the additions were reverted. Without them, the title/desc spans render unstyled (no font-weight difference, no muted color). Re-add rules when resuming.
+- **Open: decision.** Three paths to consider when resuming:
+  - (a) Promote v1.1 → replace v1's selector with the new descriptions on `/`.
+  - (b) Keep v1.1 as a permanent secondary surface alongside v1 and v2.
+  - (c) Discard.
+
+### How to resume v1.1
+1. `git checkout feat-v1.1-tier-descriptions`
+2. Run `python -m http.server 8000 --directory "G:\Claude Projects\IamFeelingLow"` and open `http://localhost:8000/v1.1/`.
+3. Re-add the `.card-with-desc / .card-title / .card-desc` CSS rules to `styles.css` (or scope them to v1.1 only via a `.v1-1` body class).
+4. Decide a/b/c above.
+
 _Future entries: one-line wins, one-line blockers, one decision per day. Don't pad it._
 
 ## later checklist (Sumeet does these on his own time — no nudging)
