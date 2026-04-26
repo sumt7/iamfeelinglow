@@ -89,4 +89,32 @@
   });
 
   try { history.replaceState({ view: 'home' }, '', ''); } catch (e) { /* ignore */ }
+
+  var SHARE_URL = 'https://iamfeelinglow.today/';
+  var SHARE_TEXT = 'I am feeling low — a free anonymous tool that matches one honest action to how heavy it actually feels. No signup. No tracking.';
+  var shareNative = document.getElementById('share-native');
+  var shareCopy = document.getElementById('share-copy');
+
+  if (shareNative && typeof navigator.share === 'function') {
+    shareNative.hidden = false;
+    shareNative.addEventListener('click', function () {
+      try {
+        navigator.share({ title: 'I am feeling low', text: SHARE_TEXT, url: SHARE_URL })
+          .catch(function () { /* user cancelled */ });
+      } catch (e) { /* ignore */ }
+    });
+  }
+
+  if (shareCopy && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    shareCopy.hidden = false;
+    shareCopy.addEventListener('click', function () {
+      try {
+        navigator.clipboard.writeText(SHARE_URL).then(function () {
+          var original = shareCopy.textContent;
+          shareCopy.textContent = 'Copied';
+          setTimeout(function () { shareCopy.textContent = original; }, 1500);
+        }).catch(function () { /* ignore */ });
+      } catch (e) { /* ignore */ }
+    });
+  }
 })();
