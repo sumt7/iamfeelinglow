@@ -124,6 +124,19 @@ a:hover { text-decoration-thickness: 2px; }
   outline: none;
 }
 
+.card.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.progress {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 1.5em;
+  letter-spacing: 0.05em;
+}
+
 .result-card {
   border: 1px solid var(--divider);
   padding: 24px;
