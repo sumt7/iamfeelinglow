@@ -123,5 +123,33 @@
       }).catch(function () { /* silent */ });
     } catch (e) { /* silent */ }
   }
+
+  var SHARE_URL = 'https://iamfeelinglow.today/';
+  var SHARE_TEXT = 'Heavy day?\n\nThis took 60 seconds. No signup, no tracking — it just picks one small thing to try, matched to how heavy the day actually feels.\n\nUse it if you need it. Forward it if you don\'t.\n\n#MentalHealth #Selfcare';
+  var shareNative = document.getElementById('share-native');
+  var shareCopy = document.getElementById('share-copy');
+
+  if (shareNative && typeof navigator.share === 'function') {
+    shareNative.hidden = false;
+    shareNative.addEventListener('click', function () {
+      try {
+        navigator.share({ title: 'I am feeling low', text: SHARE_TEXT, url: SHARE_URL })
+          .catch(function () { /* user cancelled */ });
+      } catch (e) { /* ignore */ }
+    });
+  }
+
+  if (shareCopy && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    shareCopy.hidden = false;
+    shareCopy.addEventListener('click', function () {
+      try {
+        navigator.clipboard.writeText(SHARE_URL).then(function () {
+          var original = shareCopy.textContent;
+          shareCopy.textContent = 'Copied';
+          setTimeout(function () { shareCopy.textContent = original; }, 1500);
+        }).catch(function () { /* ignore */ });
+      } catch (e) { /* ignore */ }
+    });
+  }
 })();
 
