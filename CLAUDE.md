@@ -156,7 +156,7 @@ There are two surfaces, both live, both maintained:
 - **v1 at `/`** — the letter version. Sumeet's personal opening, then a single tap on one of four self-described severity tiers. The wedge.
 - **v2 at `/v2`** — the guided version. Four short questions, scored, routed to the same four tiers. For visitors who land via search ("feeling low quiz") or who can't self-categorize.
 
-The two pages do *not* link to each other. v1 is a standalone wedge; v2 is a separate landing for a different audience. Search engines find v2 via `sitemap.xml`. Sharers pass URLs directly.
+v1 has a small, muted "Explore v2 (Beta)" discovery line above the crisis footer (`<aside id="v2-link">` in `index.html`). It's a one-way hint — v2 does *not* link back to v1, because v2's audience arrives via search and shouldn't be sent off to a long letter. Search engines also find v2 via `sitemap.xml`; sharers pass URLs directly.
 
 ### What is shared between v1 and v2 (change one → change both)
 
