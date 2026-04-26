@@ -47,6 +47,14 @@ _Fill in as they come in. Anonymous, cookieless page-view counts via Vercel Anal
 - Added Open Graph + Twitter meta tags so social-share previews render properly. (No og:image yet — possible follow-up.)
 - Added "Back to home" link on the result view, beside the existing "Go back". Tested on phone, working.
 - Mobile audit complete on a real phone; only issue found was the missing +91, now fixed.
+- Expanded the Dangerous tier from 3 to 7 verified hotlines (added Tele-MANAS, 7 Cups, Befrienders, 988). Updated Vandrevala number to verified `+91 9999 666 555` and added a WhatsApp pre-fill so the user lands in chat with a draft message ready.
+- OG image iterated 4 times: text-only → watercolor + "open me" CTA → calm typography → final author-quote card with the homepage's strongest line ("I built the thing I wish someone had given me. — Sumeet"). Aligned title, description, og:* and twitter:* meta to match.
+- Added JSON-LD `WebApplication` structured data in `<head>` for SEO/AIO/GEO — names creator, declares free + accessible, lists hotlines.
+- Shipped `sitemap.xml`, `robots.txt`, and a small SVG favicon (italic serif "i" on dusk-blue).
+- Added a subtle `<noscript>` fallback near the Start button.
+- Cleaned up `.gitignore` (now ignores node_modules, package*.json, .vercel, .agents, handbook backups).
+- Set up a Stop-hook in `~/.claude/settings.json` that plays the Windows Asterisk sound when Claude finishes a turn.
+- **Built v2 — guided 4-question check-in at `/v2`.** Same stack, same styles, same crisis floor. Scoring maps Q1+Q2+Q3 (range 2–8) to the existing 4 tiers; Q4=Yes overrides to Dangerous. Decision: don't link from `/` → `/v2`. The two surfaces serve two audiences (letter readers vs. search arrivals via "feeling low quiz" type queries).
 
 _Future entries: one-line wins, one-line blockers, one decision per day. Don't pad it._
 
