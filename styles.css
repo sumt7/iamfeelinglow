@@ -173,6 +173,19 @@ a:hover { text-decoration-thickness: 2px; }
   color: var(--text-secondary);
 }
 
+#v2-link {
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 24px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+#v2-link p { margin: 0; }
+#v2-link a { color: var(--text-secondary); }
+
 #crisis-footer {
   max-width: 580px;
   width: 100%;
