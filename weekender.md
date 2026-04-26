@@ -66,3 +66,24 @@ _Future entries: one-line wins, one-line blockers, one decision per day. Don't p
   - Paste `https://iamfeelinglow.today/` into each and click Inspect/Preview.
 - [ ] **Read Vercel Analytics dashboard.** First 24h+ of post-launch traffic — visit count, tier-pick rate, per-tier breakdown.
 - [ ] **Validate Vandrevala WhatsApp pre-fill on a real phone** if not already done — open Dangerous tier, tap WhatsApp, confirm the message reads "Hi there, I am coming from https://iamfeelinglow.today and my situation is quite dangerous now."
+- [ ] **Delete the redundant `preview-seo-tagline` branch on GitHub** when convenient: `! git push origin --delete preview-seo-tagline`.
+
+## improvement queue (both versions, v1-only, v2-only)
+
+Track ideas as one-liners. Move to a side branch when actively working. See CLAUDE.md "Two versions: v1 and v2" for which file owns what and the workflow.
+
+### Both versions (changes need to land in `index.html` AND `v2/index.html`)
+
+- [ ] _(empty — add ideas here)_
+
+### v1 only (`index.html` + `app.js`)
+
+- [ ] _(empty — add ideas here)_
+
+### v2 only (`v2/index.html` + `v2/app.js`)
+
+- [ ] _(empty — add ideas here)_
+
+### Cross-cutting / infrastructure
+
+- [ ] _(empty — add ideas here, e.g. analytics, hosting, fonts, etc.)_
