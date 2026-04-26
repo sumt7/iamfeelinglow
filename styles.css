@@ -175,6 +175,27 @@ a:hover { text-decoration-thickness: 2px; }
   color: var(--text-secondary);
 }
 
+.card-prefix {
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  margin: 0 0 6px;
+}
+
+.why-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  margin: 1.5em 0 4px;
+}
+
+.why-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
 .hotlines {
   list-style: none;
   padding-left: 0;
