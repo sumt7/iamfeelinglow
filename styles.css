@@ -94,10 +94,16 @@ a:hover { text-decoration-thickness: 2px; }
 .start-wrap { margin-top: 2em; }
 
 .question {
+  font-family: inherit;
+  font-weight: 400;
   font-size: 20px;
+  line-height: 1.5;
   margin: 0 0 1.25em;
   color: var(--text);
 }
+
+.question:focus { outline: none; }
+.result-card:focus { outline: none; }
 
 .cards {
   display: flex;
