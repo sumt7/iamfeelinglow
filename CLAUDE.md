@@ -91,29 +91,29 @@ All hotlines verified against the source data in `helplines.json` (last verified
 
 This tier is not something to journal through or walk off. It's a call. Make it. I've been here. The person on the other end isn't going to judge you, and the call itself is what breaks the spiral.
 
-## Color palette — Option C (Dusk blue)
+## Color palette — Ink on paper
 
-Represents late evening — the time most people are actually at their lowest.
+Represents a real letter on real paper. Warm, not cold. Reads as something a human wrote in the evening, not a minimalist app. Replaces the earlier Dusk blue (Option C) palette as of 2026-04-27 — the dusk-blue + amber combination read too "AI-generated default."
 
 ### Light mode
-- Background: `#EEF1F4` (pale sky)
-- Primary text: `#1F2A3A` (deep navy)
-- Secondary text: `#6B7585` (slate grey)
-- Accent (buttons, links): `#C4854A` (soft amber)
-- Hairline divider: `#D8DDE4`
+- Background: `#F5F0E6` (warm paper cream)
+- Primary text: `#1A1A1A` (deep ink)
+- Secondary text: `#5C5040` (warm grey-brown)
+- Accent (buttons, links): `#6B4423` (ink-brown)
+- Hairline divider: `#E0D8C8` (faint paper-edge)
 
 ### Dark mode
-- Background: `#141821` (near-black navy)
-- Primary text: `#D8DEE7` (pale slate)
-- Secondary text: `#8B95A5` (muted slate)
-- Accent: `#D89A5F` (warmer amber for dark backgrounds)
-- Hairline divider: `#252C39`
+- Background: `#1C1A17` (warm near-black, like ink at night)
+- Primary text: `#E8E2D5` (paper cream)
+- Secondary text: `#9A8E7C` (warm muted)
+- Accent: `#C4915A` (warm amber for dark)
+- Hairline divider: `#2D2A24`
 
 Use CSS custom properties under `:root` and `@media (prefers-color-scheme: dark)` so the OS setting flips automatically.
 
 ## Typography
 
-- Body: a serif from Google Fonts. Preferred order: **Lora**, then Source Serif Pro, then EB Garamond. Fall back to Georgia.
+- Body: a serif from Google Fonts. Preferred order: **Gentium Plus**, then Source Serif Pro, then EB Garamond. Fall back to Georgia. (Replaced Lora on 2026-04-27 — Gentium Plus is humanist, less common on the web, and reads as more hand-cut.)
 - Size: 17px base on desktop, 16px on mobile.
 - Line height: 1.65 for body paragraphs. Do not go tighter.
 - Content column: max-width 580px, centered on desktop. Full-width with 24px side padding on mobile.

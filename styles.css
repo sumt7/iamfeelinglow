@@ -1,18 +1,18 @@
 :root {
-  --bg: #EEF1F4;
-  --text: #1F2A3A;
-  --text-secondary: #6B7585;
-  --accent: #C4854A;
-  --divider: #D8DDE4;
+  --bg: #F5F0E6;
+  --text: #1A1A1A;
+  --text-secondary: #5C5040;
+  --accent: #6B4423;
+  --divider: #E0D8C8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #141821;
-    --text: #D8DEE7;
-    --text-secondary: #8B95A5;
-    --accent: #D89A5F;
-    --divider: #252C39;
+    --bg: #1C1A17;
+    --text: #E8E2D5;
+    --text-secondary: #9A8E7C;
+    --accent: #C4915A;
+    --divider: #2D2A24;
   }
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 body {
-  font-family: 'Lora', 'Source Serif Pro', 'EB Garamond', Georgia, serif;
+  font-family: 'Gentium Plus', 'Source Serif Pro', 'EB Garamond', Georgia, serif;
   font-size: 17px;
   line-height: 1.65;
   min-height: 100vh;
