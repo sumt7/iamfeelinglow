@@ -158,15 +158,17 @@ There are two surfaces, both live, both maintained:
 
 v1 has a small, muted "Explore v2 (Beta)" discovery line above the crisis footer (`<aside id="v2-link">` in `index.html`). It's a one-way hint — v2 does *not* link back to v1, because v2's audience arrives via search and shouldn't be sent off to a long letter. Search engines also find v2 via `sitemap.xml`; sharers pass URLs directly.
 
-### What is shared between v1 and v2 (change one → change both)
+### Content duplicated between v1 and v2 (ship independently)
 
-These pieces of content are duplicated between `index.html` and `v2/index.html`. If you change one, change the other in the same commit:
+These pieces of content exist in both `index.html` and `v2/index.html`. **Do not auto-mirror changes.** v1 and v2 ship independently — each version has its own audience and its own pace, so a change to one is not assumed to be a change to the other. Mirror only on explicit direction.
 
-- **The four result cards.** `<article class="result-card" id="result-flat | result-heavy | result-drowning | result-dangerous">` blocks. Identical copy, identical structure.
+- **The four result cards.** `<article class="result-card" id="result-flat | result-heavy | result-drowning | result-dangerous">` blocks. Currently identical copy and structure, but each version's card is its own surface.
 - **The Dangerous tier hotline list.** Seven entries (iCall, Vandrevala, Tele-MANAS, 7 Cups, Befrienders, 988, Find A Helpline) plus the WhatsApp pre-fill URL.
 - **The crisis footer.** `<footer id="crisis-footer">` block at the bottom of every view.
 - **Result-card "Start over / Read the letter version" links** (v2) and "Go back / Back to home" links (v1) — different patterns, same UX intent.
 - **Brand and SEO meta basics** — `<meta charset>`, `<meta viewport>`, the favicon link, the JSON-LD WebApplication block (only in v1 right now).
+
+If a real divergence risk emerges (e.g., the Dangerous hotline numbers must always agree to keep the crisis-footer trustworthy), surface it as a follow-up suggestion at end-of-turn — don't preemptively touch the other file.
 
 ### What is separate (only one version owns it)
 
@@ -177,17 +179,17 @@ These pieces of content are duplicated between `index.html` and `v2/index.html`.
 - **Scoring bands and Q4 override logic** — only in v2.
 - **Page-specific titles, descriptions, og:title, etc.** — each surface has its own SEO copy.
 
-### Workflow for simultaneous improvements
+### Workflow: one version per branch
 
-For any change that affects shared content (a result-card tweak, a hotline update, a footer fix):
+A v1 task touches only v1 files (`index.html`, `app.js`). A v2 task touches only v2 files (`v2/index.html`, `v2/app.js`). Don't bundle v1 + v2 changes in the same branch.
 
-1. Branch from `main`: `git checkout -b <topic>` (e.g., `tweak-drowning-action`, `add-aasra-hotline`).
-2. Make the change in **both** `index.html` and `v2/index.html` in the same commit.
+1. Branch from `main`: `git checkout -b <topic>` (e.g., `v1-tweak-drowning-action`, `v2-add-aasra-hotline`).
+2. Make the change in **only the version's file** — never auto-mirror to the other.
 3. Push the branch: `git push -u origin <topic>`.
 4. Vercel auto-deploys a preview URL within ~30s. Test it on phone + desktop.
-5. Merge to main only when both versions look right: `git checkout main && git merge --ff-only <topic> && git push origin main`.
+5. Open a PR. Merge through GitHub when the preview looks right; Vercel deploys to live within ~30s of merge.
 
-For changes that only affect one version (homepage letter rewrite, quiz question reordering), edit only that version's file. Same branch + preview workflow still applies for anything non-trivial.
+To port a change from one version to the other, do it as a separate, explicitly-directed task / separate PR.
 
 ### What does NOT need duplication
 
