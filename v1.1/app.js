@@ -8,6 +8,7 @@
   var question = document.querySelector('#selector .question');
   var cards = document.querySelectorAll('.card');
   var resultCards = document.querySelectorAll('.result-card');
+  var v2Nudge = document.getElementById('v2-nudge');
 
   function show(el) { if (el) el.hidden = false; }
   function hide(el) { if (el) el.hidden = true; }
@@ -40,6 +41,9 @@
     var card = document.getElementById('result-' + tier);
     if (!card) return;
     show(card);
+    if (v2Nudge) {
+      if (tier === 'dangerous') hide(v2Nudge); else show(v2Nudge);
+    }
     show(result);
     result.scrollIntoView({ block: 'start' });
     if (typeof card.focus === 'function') card.focus({ preventScroll: true });
