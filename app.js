@@ -125,7 +125,7 @@
   }
 
   var SHARE_URL = 'https://iamfeelinglow.today/';
-  var SHARE_TEXT = 'I am feeling low — a free anonymous tool that matches one honest action to how heavy it actually feels. No signup. No tracking.';
+  var SHARE_TEXT = 'Heavy day?\n\nThis took 60 seconds. No signup, no tracking — it just picks one small thing to try, matched to how heavy the day actually feels.\n\nUse it if you need it. Forward it if you don\'t.\n\n#MentalHealth #Selfcare';
   var shareNative = document.getElementById('share-native');
   var shareCopy = document.getElementById('share-copy');
 
