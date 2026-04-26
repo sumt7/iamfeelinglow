@@ -9,6 +9,13 @@
   var cards = document.querySelectorAll('.card');
   var resultCards = document.querySelectorAll('.result-card');
   var v2Nudge = document.getElementById('v2-nudge');
+  var counterLine = document.getElementById('counter-line');
+
+  var COUNTER_API = '/api/v1a-counter';
+  var CLICKED_KEY = 'iamfeelinglow-v1a-start-clicked';
+  var COUNTER_THRESHOLD = 50;
+  var hasClickedBefore = false;
+  try { hasClickedBefore = !!localStorage.getItem(CLICKED_KEY); } catch (e) { /* private mode */ }
 
   function show(el) { if (el) el.hidden = false; }
   function hide(el) { if (el) el.hidden = true; }
@@ -63,6 +70,11 @@
   start.addEventListener('click', function () {
     pushView({ view: 'selector' });
     renderSelector();
+    if (!hasClickedBefore) {
+      hasClickedBefore = true;
+      try { localStorage.setItem(CLICKED_KEY, '1'); } catch (e) { /* private mode */ }
+      try { fetch(COUNTER_API, { method: 'POST' }).catch(function () {}); } catch (e) { /* ignore */ }
+    }
   });
 
   for (var i = 0; i < cards.length; i++) {
@@ -93,6 +105,24 @@
   });
 
   try { history.replaceState({ view: 'home' }, '', ''); } catch (e) { /* ignore */ }
+
+  // Counter line above Start. Shown to everyone each visit; only the increment is once-per-device.
+  if (counterLine) {
+    try {
+      fetch(COUNTER_API).then(function (r) {
+        if (!r.ok) return;
+        return r.json();
+      }).then(function (data) {
+        if (!data || typeof data.count !== 'number') return;
+        if (data.count < COUNTER_THRESHOLD) {
+          counterLine.textContent = 'Free and live since April 2026.';
+        } else {
+          counterLine.textContent = data.count + ' have made it this far. You’re next.';
+        }
+        counterLine.hidden = false;
+      }).catch(function () { /* silent */ });
+    } catch (e) { /* silent */ }
+  }
 
   var SHARE_URL = 'https://iamfeelinglow.today/';
   var SHARE_TEXT = 'I am feeling low — a free anonymous tool that matches one honest action to how heavy it actually feels. No signup. No tracking.';

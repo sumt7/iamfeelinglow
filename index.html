@@ -75,6 +75,7 @@
     <p><em>For the days you can't say it out loud.</em></p>
     <p>One question: how bad is it right now?<br>Four honest answers.<br>One action for each, matched to the level.</p>
     <p>No signup. No personal data stored. Ever.</p>
+    <p class="counter-line" id="counter-line" hidden></p>
     <p class="start-wrap"><button type="button" id="start" class="btn">Start</button></p>
     <noscript><p class="noscript-note">Picker needs JavaScript. Hotlines still work.</p></noscript>
   </section>
@@ -82,10 +83,22 @@
   <section id="selector" class="view" aria-labelledby="selector-question" hidden>
     <h1 id="selector-question" class="question" tabindex="-1">How bad is it right now?</h1>
     <div class="cards">
-      <button type="button" class="card" data-tier="flat">Flat</button>
-      <button type="button" class="card" data-tier="heavy">Heavy</button>
-      <button type="button" class="card" data-tier="drowning">Drowning</button>
-      <button type="button" class="card" data-tier="dangerous">Dangerous</button>
+      <button type="button" class="card card-with-desc" data-tier="flat">
+        <span class="card-title">Flat:</span>
+        <span class="card-desc">I feel numb, blank, or disconnected.</span>
+      </button>
+      <button type="button" class="card card-with-desc" data-tier="heavy">
+        <span class="card-title">Heavy:</span>
+        <span class="card-desc">I can function, but everything feels hard.</span>
+      </button>
+      <button type="button" class="card card-with-desc" data-tier="drowning">
+        <span class="card-title">Drowning:</span>
+        <span class="card-desc">I can't see a way through right now.</span>
+      </button>
+      <button type="button" class="card card-with-desc" data-tier="dangerous">
+        <span class="card-title">Dangerous:</span>
+        <span class="card-desc">I'm thinking about not being here, or I'm not safe.</span>
+      </button>
     </div>
   </section>
 
