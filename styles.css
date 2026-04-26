@@ -230,6 +230,38 @@ a:hover { text-decoration-thickness: 2px; }
 #v2-link p { margin: 0; }
 #v2-link a { color: var(--text-secondary); }
 
+#share-link {
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 24px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+#share-link p { margin: 0; }
+#share-link .share-row { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+#share-link a { color: var(--text-secondary); }
+
+#share-link button.share-item {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+#share-link button.share-item:hover {
+  text-decoration-thickness: 2px;
+}
+
 #crisis-footer {
   max-width: 580px;
   width: 100%;
