@@ -211,6 +211,17 @@ a:hover { text-decoration-thickness: 2px; }
   font-size: 14px;
 }
 
+.v2-nudge {
+  margin-top: 1.75em;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.v2-nudge a { color: var(--text-secondary); }
+
+.v2-nudge + .go-back { margin-top: 0.5em; }
+
 .noscript-note {
   margin-top: 1em;
   font-size: 13px;
