@@ -14,6 +14,28 @@
   var answers = { q1: 0, q2: 0, q3: 0, q4: 0 };
   var q3Selected = {};
 
+  // v2's classify() returns tier names (flat/heavy/drowning/dangerous);
+  // analytics carry "band" instead, per the schema Sumeet asked for.
+  var BAND_MAP = {
+    flat: 'mild',
+    heavy: 'moderate',
+    drowning: 'severe',
+    dangerous: 'crisis',
+  };
+
+  function track(name, value) {
+    try {
+      var body = { name: name };
+      if (value) body.value = value;
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        keepalive: true,
+      }).catch(function () { /* silent */ });
+    } catch (e) { /* ignore */ }
+  }
+
   function show(el) { if (el) el.hidden = false; }
   function hide(el) { if (el) el.hidden = true; }
   function hideAll() { hide(intro); hide(q1); hide(q2); hide(q3); hide(q4); hide(result); }
@@ -41,6 +63,7 @@
   }
 
   begin.addEventListener('click', function () {
+    track('clicked_start');
     hideAll(); show(q1); scrollTop();
   });
 
@@ -51,9 +74,11 @@
 
       if (qNum === '1') {
         answers.q1 = val;
+        track('answered_q1', String(val));
         hideAll(); show(q2); scrollTop();
       } else if (qNum === '2') {
         answers.q2 = val;
+        track('answered_q2', String(val));
         hideAll(); show(q3); scrollTop();
       } else if (qNum === '3') {
         if (this.classList.contains('selected')) {
@@ -65,12 +90,14 @@
         }
       } else if (qNum === '4') {
         answers.q4 = val;
+        track('answered_q4', String(val));
         var maxQ3 = 0;
         for (var k in q3Selected) {
           if (q3Selected[k] && parseInt(k, 10) > maxQ3) maxQ3 = parseInt(k, 10);
         }
         answers.q3 = maxQ3;
         var tier = classify();
+        track('viewed_result', BAND_MAP[tier] || tier);
         hideAll();
         hideAllResults();
         show(document.getElementById('result-' + tier));
@@ -86,6 +113,7 @@
       if (q3Selected[k] && parseInt(k, 10) > maxQ3) maxQ3 = parseInt(k, 10);
     }
     answers.q3 = maxQ3;
+    track('answered_q3', String(maxQ3));
     hideAll(); show(q4); scrollTop();
   });
 
@@ -93,4 +121,42 @@
     e.preventDefault();
     reset();
   });
+
+  var SHARE_URL = 'https://iamfeelinglow.today/';
+  var SHARE_TEXT = 'Heavy day?\n\nThis took 60 seconds. No signup, no tracking — it just picks one small thing to try, matched to how heavy the day actually feels.\n\nUse it if you need it. Forward it if you don\'t.\n\n#MentalHealth #Selfcare';
+  var shareNative = document.getElementById('share-native');
+  var shareCopy = document.getElementById('share-copy');
+
+  if (shareNative && typeof navigator.share === 'function') {
+    shareNative.hidden = false;
+    shareNative.addEventListener('click', function () {
+      try {
+        navigator.share({ title: 'I am feeling low', text: SHARE_TEXT, url: SHARE_URL })
+          .catch(function () { /* user cancelled */ });
+      } catch (e) { /* ignore */ }
+    });
+  }
+
+  if (shareCopy && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    shareCopy.hidden = false;
+    shareCopy.addEventListener('click', function () {
+      try {
+        navigator.clipboard.writeText(SHARE_URL).then(function () {
+          var original = shareCopy.textContent;
+          shareCopy.textContent = 'Copied';
+          setTimeout(function () { shareCopy.textContent = original; }, 1500);
+        }).catch(function () { /* ignore */ });
+      } catch (e) { /* ignore */ }
+    });
+  }
+
+  var shareRow = document.querySelector('#share-link .share-row');
+  if (shareRow) {
+    shareRow.addEventListener('click', function (e) {
+      var item = e.target && e.target.closest && e.target.closest('.share-item');
+      if (!item) return;
+      var label = (item.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      if (label) track('clicked_share', label);
+    });
+  }
 })();
