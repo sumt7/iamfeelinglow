@@ -14,6 +14,28 @@
   var answers = { q1: 0, q2: 0, q3: 0, q4: 0 };
   var q3Selected = {};
 
+  // v2's classify() returns tier names (flat/heavy/drowning/dangerous);
+  // analytics carry "band" instead, per the schema Sumeet asked for.
+  var BAND_MAP = {
+    flat: 'mild',
+    heavy: 'moderate',
+    drowning: 'severe',
+    dangerous: 'crisis',
+  };
+
+  function track(name, value) {
+    try {
+      var body = { name: name };
+      if (value) body.value = value;
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        keepalive: true,
+      }).catch(function () { /* silent */ });
+    } catch (e) { /* ignore */ }
+  }
+
   function show(el) { if (el) el.hidden = false; }
   function hide(el) { if (el) el.hidden = true; }
   function hideAll() { hide(intro); hide(q1); hide(q2); hide(q3); hide(q4); hide(result); }
@@ -41,6 +63,7 @@
   }
 
   begin.addEventListener('click', function () {
+    track('clicked_start');
     hideAll(); show(q1); scrollTop();
   });
 
@@ -51,9 +74,11 @@
 
       if (qNum === '1') {
         answers.q1 = val;
+        track('answered_q1', String(val));
         hideAll(); show(q2); scrollTop();
       } else if (qNum === '2') {
         answers.q2 = val;
+        track('answered_q2', String(val));
         hideAll(); show(q3); scrollTop();
       } else if (qNum === '3') {
         if (this.classList.contains('selected')) {
@@ -65,12 +90,14 @@
         }
       } else if (qNum === '4') {
         answers.q4 = val;
+        track('answered_q4', String(val));
         var maxQ3 = 0;
         for (var k in q3Selected) {
           if (q3Selected[k] && parseInt(k, 10) > maxQ3) maxQ3 = parseInt(k, 10);
         }
         answers.q3 = maxQ3;
         var tier = classify();
+        track('viewed_result', BAND_MAP[tier] || tier);
         hideAll();
         hideAllResults();
         show(document.getElementById('result-' + tier));
@@ -86,6 +113,7 @@
       if (q3Selected[k] && parseInt(k, 10) > maxQ3) maxQ3 = parseInt(k, 10);
     }
     answers.q3 = maxQ3;
+    track('answered_q3', String(maxQ3));
     hideAll(); show(q4); scrollTop();
   });
 
