@@ -67,7 +67,21 @@
     try { history.pushState(state, '', ''); } catch (e) { /* ignore */ }
   }
 
+  function track(name, value) {
+    try {
+      var body = { name: name };
+      if (value) body.value = value;
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        keepalive: true,
+      }).catch(function () { /* silent */ });
+    } catch (e) { /* ignore */ }
+  }
+
   start.addEventListener('click', function () {
+    track('clicked_start');
     pushView({ view: 'selector' });
     renderSelector();
     if (!hasClickedBefore) {
@@ -80,8 +94,20 @@
   for (var i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function () {
       var tier = this.getAttribute('data-tier');
+      track('answered_q1', tier);
+      track('viewed_result', tier);
       pushView({ view: 'result', tier: tier });
       renderResult(tier);
+    });
+  }
+
+  var shareRow = document.querySelector('#share-link .share-row');
+  if (shareRow) {
+    shareRow.addEventListener('click', function (e) {
+      var item = e.target && e.target.closest && e.target.closest('.share-item');
+      if (!item) return;
+      var label = (item.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      if (label) track('clicked_share', label);
     });
   }
 
