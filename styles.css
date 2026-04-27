@@ -265,6 +265,38 @@ a:hover { text-decoration-thickness: 2px; }
 
 .v2-nudge + .go-back { margin-top: 0.5em; }
 
+.pass-it-on {
+  margin-top: 1.75em;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.pass-it-on + .v2-nudge { margin-top: 0.6em; }
+.pass-it-on + .go-back { margin-top: 0.6em; }
+
+.pass-trigger {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: italic;
+  color: var(--accent);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-thickness 120ms;
+}
+
+.pass-trigger:hover,
+.pass-trigger:focus-visible {
+  text-decoration-thickness: 2px;
+  outline: none;
+}
+
 .noscript-note {
   margin-top: 1em;
   font-size: 13px;

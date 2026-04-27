@@ -14,6 +14,9 @@
   var answers = { q1: 0, q2: 0, q3: 0, q4: 0 };
   var q3Selected = {};
 
+  var passItOn = document.getElementById('pass-it-on');
+  var passTrigger = document.getElementById('pass-trigger');
+
   // v2's classify() returns tier names (flat/heavy/drowning/dangerous);
   // analytics carry "band" instead, per the schema Sumeet asked for.
   var BAND_MAP = {
@@ -101,6 +104,9 @@
         hideAll();
         hideAllResults();
         show(document.getElementById('result-' + tier));
+        if (passItOn) {
+          if (tier === 'dangerous') hide(passItOn); else show(passItOn);
+        }
         show(result);
         scrollTop();
       }
@@ -157,6 +163,33 @@
       if (!item) return;
       var label = (item.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
       if (label) track('clicked_share', label);
+    });
+  }
+
+  if (passTrigger) {
+    passTrigger.addEventListener('click', function () {
+      track('clicked_share', 'pass-it-on');
+      if (typeof navigator.share === 'function') {
+        try {
+          navigator.share({ title: 'I am feeling low', text: SHARE_TEXT, url: SHARE_URL })
+            .catch(function () { /* user cancelled */ });
+        } catch (e) { /* ignore */ }
+        return;
+      }
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        try {
+          navigator.clipboard.writeText(SHARE_URL).then(function () {
+            var original = passTrigger.textContent;
+            passTrigger.textContent = 'link copied';
+            setTimeout(function () { passTrigger.textContent = original; }, 1800);
+          }).catch(function () { /* ignore */ });
+        } catch (e) { /* ignore */ }
+        return;
+      }
+      var fallback = document.getElementById('share-link');
+      if (fallback && typeof fallback.scrollIntoView === 'function') {
+        fallback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   }
 })();
