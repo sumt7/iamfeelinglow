@@ -116,6 +116,28 @@ a:hover { text-decoration-thickness: 2px; }
 
 .start-wrap { margin-top: 2em; }
 
+.pivot {
+  margin-top: 2em;
+  padding-top: 1.25em;
+}
+
+.pivot::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 0 1.25em;
+}
+
+.signature {
+  margin: 1.5em 0 0;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.signature svg { display: block; }
+
 .question {
   font-family: inherit;
   font-weight: 400;
