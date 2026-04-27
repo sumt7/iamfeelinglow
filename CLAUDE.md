@@ -211,7 +211,7 @@ All transitions are instant. No animations longer than 150ms. No fade effects on
 
 ## What not to add (resist the urge)
 
-- No "feedback" form. No "share your story" section. No testimonials.
+- No on-page "feedback" form. No "share your story" section. No testimonials. (Bug reports and feature ideas are accepted via GitHub Issues — see `CONTRIBUTING.md` and the muted "Bugs or ideas?" link in the footer area. The page itself never hosts conversation.)
 - No newsletter signup. No "bookmark this page" prompts.
 - No "rate how you're feeling after" survey.
 - No illustrations, no photos, no icons inside severity cards.
