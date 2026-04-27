@@ -71,7 +71,7 @@ main {
   max-width: 580px;
   width: 100%;
   margin: 0 auto;
-  padding: 64px 24px 32px;
+  padding: 40px 24px 24px;
 }
 
 @media (max-width: 600px) {
@@ -267,7 +267,7 @@ a:hover { text-decoration-thickness: 2px; }
   max-width: 580px;
   width: 100%;
   margin: 0 auto;
-  padding: 16px 24px 0;
+  padding: 8px 24px 0;
   color: var(--text-secondary);
   font-size: 13px;
   line-height: 1.55;
@@ -280,7 +280,7 @@ a:hover { text-decoration-thickness: 2px; }
   max-width: 580px;
   width: 100%;
   margin: 0 auto;
-  padding: 16px 24px 0;
+  padding: 8px 24px 0;
   color: var(--text-secondary);
   font-size: 13px;
   line-height: 1.55;
@@ -312,7 +312,7 @@ a:hover { text-decoration-thickness: 2px; }
   max-width: 580px;
   width: 100%;
   margin: 0 auto;
-  padding: 20px 24px 32px;
+  padding: 16px 24px 16px;
   border-top: 1px solid var(--divider);
   color: var(--text-secondary);
   font-size: 14px;
@@ -324,5 +324,5 @@ a:hover { text-decoration-thickness: 2px; }
 #crisis-footer a { color: var(--text-secondary); }
 
 @media (max-width: 600px) {
-  #crisis-footer { padding: 16px 24px 24px; font-size: 13px; }
+  #crisis-footer { padding: 12px 24px 16px; font-size: 13px; }
 }
