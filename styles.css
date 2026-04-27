@@ -348,6 +348,19 @@ a:hover { text-decoration-thickness: 2px; }
   text-decoration-thickness: 2px;
 }
 
+#github-link {
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px 24px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+#github-link p { margin: 0; }
+#github-link a { color: var(--text-secondary); }
+
 #crisis-footer {
   max-width: 580px;
   width: 100%;

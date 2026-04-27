@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: If you're feeling unsafe right now
+    url: https://iamfeelinglow.today/dangerous
+    about: Please use the verified hotlines on this page instead of opening an issue. There's a human on the other end of every number.
